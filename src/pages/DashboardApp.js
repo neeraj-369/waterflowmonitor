@@ -100,11 +100,11 @@ export default function DashboardApp() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={4}>
-            <AppWidgetSummary title="Current Flow" total={rate[rate.length - 1]} icon={WavesIcon} />
+            <AppWidgetSummary title={"Current Flow (mL/s) at " + time[time.length - 1]} total={rate[rate.length - 1]}  icon={WavesIcon} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <AppWidgetSummary title="Volume Detected" total={volume[volume.length - 1]} color="info" icon={'ant-design:applase-filled'} />
+            <AppWidgetSummary title={"Volume Detected (L) at " + time[time.length - 1]}   total={volume[volume.length - 1]} color="info" icon={'ant-design:applase-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
@@ -117,16 +117,17 @@ export default function DashboardApp() {
               chartLabels={time}
 
               chartData={[
-                {
-                  name: 'Total Volume',
-                  type: 'area',
-                  fill: 'gradient',
-                  data: rate,
-                },
+
                 {
                   name: 'Rate Flow',
                   type: 'line',
                   fill: 'solid',
+                  data: rate,
+                },
+                {
+                  name: 'Total Volume',
+                  type: 'area',
+                  fill: 'gradient',
                   data: volume,
                 },
               ]}
@@ -146,6 +147,22 @@ export default function DashboardApp() {
                 theme.palette.chart.blue[0],
                 theme.palette.chart.violet[0],
                 theme.palette.chart.yellow[0],
+              ]}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={8}>
+            <AppWebsiteVisits
+              title="Readings"
+              chartLabels={time}
+
+              chartData={[
+                {
+                  name: 'Rate Flow',
+                  type: 'line',
+                  fill: 'solid',
+                  data: rate,
+                }
               ]}
             />
           </Grid>
