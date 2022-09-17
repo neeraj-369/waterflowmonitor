@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { alpha, styled } from '@mui/material/styles';
 import { Card, Typography } from '@mui/material';
 // utils
+import AirIcon from '@mui/icons-material/Air';
+import { SvgIcon } from '@mui/material';
 import { fShortenNumber } from '../../../utils/formatNumber';
 // components
 import Iconify from '../../../components/Iconify';
@@ -30,7 +32,7 @@ AppWidgetSummary.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function AppWidgetSummary({ title, total, icon, color = 'primary', sx, ...other }) {
+export default function AppWidgetSummary({ title, total, unit, icon, time, color = 'primary', sx, ...other }) {
   return (
     <Card
       sx={{
@@ -39,6 +41,7 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
         textAlign: 'center',
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
+        minHeight: '100px',
         ...sx,
       }}
       {...other}
@@ -53,13 +56,17 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
             )} 100%)`,
         }}
       >
-        <Iconify icon={icon} width={24} height={24} />
+      <SvgIcon component={icon} inheritViewBox />
       </IconWrapperStyle>
 
-      <Typography variant="h3">{fShortenNumber(total)}</Typography>
+      <Typography variant="h3">{fShortenNumber(total) + unit}</Typography>
 
-      <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
+      <Typography variant="subtitle2" sx={{ opacity: 0.72, fontSize : '18px'}}>
         {title}
+      </Typography>
+
+      <Typography variant="subtitle2" sx={{ opacity: 0.5, fontSize : '13px' }}>
+        {time}
       </Typography>
     </Card>
   );

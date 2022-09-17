@@ -2,7 +2,7 @@
   "name": "@minimal/material-kit-react",
   "author": "minimals.cc",
   "licence": "MIT",
-  "version": "1.5.0", 
+  "version": "1.5.0",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
@@ -64,6 +64,7 @@
     "react-hook-form": "^7.33.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "reactstrap": "^9.1.4",
     "simplebar": "^5.3.8",
     "simplebar-react": "^2.4.1",
     "web-vitals": "^2.1.4",
