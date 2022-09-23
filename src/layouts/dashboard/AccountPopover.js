@@ -84,26 +84,26 @@ export default function AccountPopover() {
           <Typography variant="subtitle2" noWrap>
             {account.displayName}
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
+          {/* <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
             {account.email}
-          </Typography>
+          </Typography> */}
         </Box>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Stack sx={{ p: 1 }}>
+        {/* <Stack sx={{ p: 1 }}>
           {MENU_OPTIONS.map((option) => (
             <MenuItem key={option.label} to={option.linkTo} component={RouterLink} onClick={handleClose}>
               {option.label}
             </MenuItem>
           ))}
-        </Stack>
+        </Stack> */}
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <MenuItem onClick={handleClose} sx={{ m: 1 }}>
+        {/* <MenuItem onClick={handleClose} sx={{ m: 1 }}>
           Logout
-        </MenuItem>
+        </MenuItem> */}
       </MenuPopover>
     </>
   );
