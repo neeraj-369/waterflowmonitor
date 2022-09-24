@@ -177,13 +177,17 @@ export default function DashboardApp() {
         let piea = 0;
         let pieb = 0;
         let piec = 0;
-        let k = 0;
+        var k = 0;
         response.data.feeds.forEach((sample) => {
-          a.push(sample.field1);
-          b.push(k);
+          a.push(Number(sample.field1).toFixed(2));
+          var g = k.toFixed(2);
+          b.push(g);
           let f = Number(sample.field1) + 1;
 
           k = k + Number(((f * 30)) / 1000);
+          // k = Number(k).toFixed(2);
+       
+
           // k = f;
           // const ss = new Date(sample.created_at).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' });
           c.push(sample.created_at);
